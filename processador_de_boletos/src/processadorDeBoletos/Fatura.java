@@ -1,5 +1,7 @@
 package processadorDeBoletos;
 
+import java.util.Objects;
+
 public class Fatura {
 
 	private String data;
@@ -31,4 +33,23 @@ public class Fatura {
 	public void setIsPaga() {
 		this.isPaga = !getIsPaga();
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(data, nomeDoCliente, valorTotal);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Fatura other = (Fatura) obj;
+		return Objects.equals(data, other.data) && Objects.equals(nomeDoCliente, other.nomeDoCliente)
+				&& Double.doubleToLongBits(valorTotal) == Double.doubleToLongBits(other.valorTotal);
+	}
+
 }

@@ -6,6 +6,7 @@ import java.util.List;
 public class Processador {
 	
 	private List<Boleto> boletos;
+	private Fatura fatura;
 	private Exceptions exceptions;
 	
 	public Processador() {
@@ -24,6 +25,18 @@ public class Processador {
 
 	public List<Boleto> getBoletos() {
 		return this.boletos;
+	}
+
+	public void cadastraFatura(String data, double valorTotal, String nomeDoCliente) {
+		exceptions.verifier(data);
+		exceptions.verifier(valorTotal);
+		exceptions.verifier(nomeDoCliente);
+		
+		this.fatura = new Fatura(data, valorTotal, nomeDoCliente);
+	}
+
+	public Object getFatura() {
+		return this.fatura;
 	}
 
 }
