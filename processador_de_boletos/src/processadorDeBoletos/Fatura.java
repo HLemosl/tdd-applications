@@ -11,4 +11,8 @@ public class Fatura {
 		this.valorTotal = valorTotal;
 		this.nomeDoCliente = nomeDoCliente;
 	}
+
+	public Double getValor() {
+		return this.valorTotal;
+	}
 }
