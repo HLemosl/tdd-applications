@@ -7,7 +7,13 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import processadorDeBoletos.Boleto;
+import processadorDeBoletos.Fatura;
+import processadorDeBoletos.Processador;
+
 class ProcessadorTest {
+	
+	private Processador processador;
 
 	@BeforeEach
 	void setUp() throws Exception {
