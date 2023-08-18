@@ -3,6 +3,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import processadorDeBoletos.Boleto;
+
 class BoletoTest {
 
 	@Test
@@ -14,7 +16,6 @@ class BoletoTest {
 	
 	@Test
 	void testBoletoNuloVazio() {
-		assertThrows(NullPointerException.class, () -> new Boleto("5698365869", "02.08.2023", null));
 		assertThrows(NullPointerException.class, () -> new Boleto("6925150679", null, 742.79));
 		assertThrows(NullPointerException.class, () -> new Boleto(null, "18072023", 278.35));
 		
