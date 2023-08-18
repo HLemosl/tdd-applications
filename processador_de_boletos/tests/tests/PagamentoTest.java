@@ -27,10 +27,5 @@ class PagamentoTest {
 		assertThrows(IllegalArgumentException.class, () -> new Pagamento(80.60, "", boletoTest));
 		assertThrows(IllegalArgumentException.class, () -> new Pagamento(0.0, "18052023", boletoTest2));
 	}
-	
-	@Test
-	void testPagamento() {
-		
-	}
 
 }
