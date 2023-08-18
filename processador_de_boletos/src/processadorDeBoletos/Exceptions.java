@@ -18,4 +18,10 @@ public class Exceptions {
 		}		
 	}
 
+	public void verifier(Object object) {
+		if (object == null) {
+			throw new NullPointerException();
+		}
+	}
+
 }
