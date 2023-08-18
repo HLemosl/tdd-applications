@@ -18,4 +18,8 @@ public class Boleto {
 		this.valorPago = valorPago;
 	}
 
+	public Double getValor() {
+		return this.valorPago;
+	}
+
 }
