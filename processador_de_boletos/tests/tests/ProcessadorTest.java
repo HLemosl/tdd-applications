@@ -14,18 +14,20 @@ import processadorDeBoletos.Processador;
 class ProcessadorTest {
 	
 	private Processador processador;
+	private List<Boleto> boletos;
+	private Fatura fatura;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		processador = new Processador();
 		
-		List<Boleto> boletos = new ArrayList<Boleto>();
+		boletos = new ArrayList<Boleto>();
 		
 		boletos.add(new Boleto("4076426207", "12.06.2023", 500.00));
 		boletos.add(new Boleto("5933221982", "12072023", 400.00));
 		boletos.add(new Boleto("7337230525", "12/08/2023", 600.00));
 		
-		Fatura fatura = new Fatura("12052023", 1500.00, "Kai Melo Pereira");
+		fatura = new Fatura("12052023", 1500.00, "Kai Melo Pereira");
 	}
 
 	@Test
