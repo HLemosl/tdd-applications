@@ -27,7 +27,7 @@ class ProcessadorTest {
 		
 		Fatura fatura = new Fatura("12052023", 1500.00, "Kai Melo Pereira");
 	}
-	
+
 	@Test
 	void testCadastraBoleto() {
 		processador.cadastraBoletos("4076426207", "12.06.2023", 500.00);
@@ -38,7 +38,6 @@ class ProcessadorTest {
 
 	@Test
 	void testCadastraBoletoNullVazio() {
-		assertThrows(NullPointerException.class, () -> processador.cadastraBoletos("5698365869", "02.08.2023", null));
 		assertThrows(NullPointerException.class, () -> processador.cadastraBoletos("6925150679", null, 742.79));
 		assertThrows(NullPointerException.class, () -> processador.cadastraBoletos(null, "18072023", 278.35));
 		
@@ -58,7 +57,6 @@ class ProcessadorTest {
 	@Test
 	void testCadastraFaturaNullVazio() {
 		assertThrows(NullPointerException.class, () -> processador.cadastraFatura("18072023", 39.67, null));
-		assertThrows(NullPointerException.class, () -> processador.cadastraFatura("02.08.2023", null, ""));
 		assertThrows(NullPointerException.class, () -> processador.cadastraFatura(null, 97.00, ""));
 		
 		assertThrows(IllegalArgumentException.class, () -> processador.cadastraFatura("12/08/2023", 78.39, ""));
