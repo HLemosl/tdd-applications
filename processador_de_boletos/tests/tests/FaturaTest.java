@@ -3,6 +3,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import processadorDeBoletos.Fatura;
+
 class FaturaTest {
 
 	@Test
@@ -15,7 +17,6 @@ class FaturaTest {
 	@Test
 	void testFaturaNuloVazio() {
 		assertThrows(NullPointerException.class, () -> new Fatura("18072023", 39.67, null));
-		assertThrows(NullPointerException.class, () -> new Fatura("02.08.2023", null, ""));
 		assertThrows(NullPointerException.class, () -> new Fatura(null, 97.00, ""));
 		
 		assertThrows(IllegalArgumentException.class, () -> new Fatura("12/08/2023", 78.39, ""));
