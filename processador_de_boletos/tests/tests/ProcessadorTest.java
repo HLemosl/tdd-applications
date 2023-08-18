@@ -33,7 +33,7 @@ class ProcessadorTest {
 		processador.cadastraBoletos("4076426207", "12.06.2023", 500.00);
 		processador.cadastraBoletos("7337230525", "12/08/2023", 600.00);
 		
-		asserEquals(processador.getBoletos.size(), 2);
+		assertEquals(processador.getBoletos().size(), 2);
 	}
 
 	@Test
