@@ -1,10 +1,12 @@
-import static org.junit.Assert.*;
+package tests;
+
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
-enum Prioridade {
-    ALTA, MEDIA, BAIXA
-}
+import gerenciadorDeTarefas.Prioridade;
+import gerenciadorDeTarefas.Tarefa;
 
 public class TarefaTest {
 
