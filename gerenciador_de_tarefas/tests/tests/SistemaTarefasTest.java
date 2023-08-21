@@ -2,8 +2,10 @@ package tests;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import gerenciadorDeTarefas.Prioridade;
 import gerenciadorDeTarefas.SistemaTarefas;
@@ -12,7 +14,7 @@ import gerenciadorDeTarefas.Tarefa;
 public class SistemaTarefasTest {
 	private SistemaTarefas sistemaTarefas;
 
-    @Before
+    @BeforeEach
     public void configurar() {
     	sistemaTarefas = new SistemaTarefas();
     }

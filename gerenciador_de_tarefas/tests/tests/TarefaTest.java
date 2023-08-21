@@ -2,8 +2,8 @@ package tests;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import gerenciadorDeTarefas.Prioridade;
 import gerenciadorDeTarefas.Tarefa;
@@ -12,7 +12,7 @@ public class TarefaTest {
 
     private Tarefa tarefa;
 
-    @Before
+    @BeforeEach
     public void configurar() {
         tarefa = new Tarefa("Completar tarefa de Java", "Finalizar a tarefa de programação", "21/08/2023", Prioridade.ALTA);
     }
