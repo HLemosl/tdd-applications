@@ -1,6 +1,7 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 
@@ -27,6 +28,11 @@ public class SistemaTarefasTest {
         List<Tarefa> todasTarefas = sistemaTarefas.listarTodasTarefas();
         assertEquals(1, todasTarefas.size());
     }
+    
+    @Test
+	public void testAdicionarTarefaNullVazio() {
+		assertThrows(NullPointerException.class, () -> sistemaTarefas.adicionarTarefa(null));
+	}
 
     @Test
     public void testAtualizarTarefa() {
@@ -39,9 +45,15 @@ public class SistemaTarefasTest {
         List<Tarefa> todasTarefas = sistemaTarefas.listarTodasTarefas();
         assertEquals("Tarefa Atualizada", todasTarefas.get(0).getTitulo());
         assertEquals("Descrição atualizada", todasTarefas.get(0).getDescricao());
-        assertEquals("2023-09-15", todasTarefas.get(0).getDataVencimento());
+        assertEquals("21/08/2023", todasTarefas.get(0).getDataVencimento());
         assertEquals(Prioridade.BAIXA, todasTarefas.get(0).getPrioridade());
     }
+    
+
+    @Test
+	public void testAtualizarTarefaNullVazio() {
+		assertThrows(NullPointerException.class, () -> sistemaTarefas.atualizarTarefa(0, null));
+	}
 
     @Test
     public void testRemoverTarefa() {

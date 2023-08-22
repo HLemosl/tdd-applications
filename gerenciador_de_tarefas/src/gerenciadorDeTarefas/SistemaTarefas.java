@@ -5,18 +5,26 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import gerenciadorDeTarefas.Exceptions;
+
 public class SistemaTarefas {
     private List<Tarefa> tarefas;
+    private Exceptions exceptions;
 
     public SistemaTarefas() {
+    	this.exceptions = new Exceptions();
         tarefas = new ArrayList<>();
     }
 
     public void adicionarTarefa(Tarefa tarefa) {
+    	exceptions.verifier(tarefa);
+    	
         tarefas.add(tarefa);
     }
 
     public void atualizarTarefa(int indice, Tarefa tarefaAtualizada) {
+    	exceptions.verifier(tarefaAtualizada);
+    	
         tarefas.set(indice, tarefaAtualizada);
     }
 
