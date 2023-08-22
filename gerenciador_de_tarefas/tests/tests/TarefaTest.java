@@ -1,6 +1,7 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,17 @@ public class TarefaTest {
     public void configurar() {
         tarefa = new Tarefa("Completar tarefa de Java", "Finalizar a tarefa de programação", "21/08/2023", Prioridade.ALTA);
     }
+    
+    @Test
+	public void testBoletoNuloVazio() {
+    	assertThrows(IllegalArgumentException.class, () -> new Tarefa("", "Finalizar a tarefa de programação", "21/08/2023", Prioridade.ALTA));
+    	assertThrows(IllegalArgumentException.class, () -> new Tarefa("Completar tarefa de Java", "", "21/08/2023", Prioridade.ALTA));
+    	
+		assertThrows(NullPointerException.class, () -> new Tarefa(null, "Finalizar a tarefa de programação", "21/08/2023", Prioridade.ALTA));
+		assertThrows(NullPointerException.class, () -> new Tarefa("Completar tarefa de Java", null, "21/08/2023", Prioridade.ALTA));
+		assertThrows(NullPointerException.class, () -> new Tarefa("Completar tarefa de Java", "Finalizar a tarefa de programação", null, Prioridade.ALTA));
+		assertThrows(NullPointerException.class, () -> new Tarefa("Completar tarefa de Java", "Finalizar a tarefa de programação", "21/08/2023", null));
+	}
 
     @Test
     public void testGetters() {
