@@ -1,12 +1,20 @@
 package gerenciadorDeTarefas;
 
+
 public class Tarefa {
 	private String titulo;
     private String descricao;
     private String dataVencimento;
     private Prioridade prioridade;
+    
+    Exceptions exception = new Exceptions();
 
     public Tarefa(String titulo, String descricao, String dataVencimento, Prioridade prioridade) {
+    	exception.verifier(titulo);
+		exception.verifier(descricao);
+		exception.verifier(dataVencimento);
+		exception.verifier(prioridade);
+		
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataVencimento = dataVencimento;
