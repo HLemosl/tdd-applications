@@ -12,7 +12,7 @@ import gerenciadorDeTarefas.Prioridade;
 import gerenciadorDeTarefas.SistemaTarefas;
 import gerenciadorDeTarefas.Tarefa;
 
-public class EquivalencePartitionsTests {
+public class DecisionTablesTests {
 
 	private Tarefa tarefaValida;
 	private SistemaTarefas sistemaTarefas;
@@ -61,7 +61,9 @@ public class EquivalencePartitionsTests {
         List<Tarefa> todasTarefas = sistemaTarefas.listarTodasTarefas();
         
         assertEquals("12/10/2023", todasTarefas.get(0).getDataVencimento());
-        assertThrows(IllegalArgumentException.class, () -> sistemaTarefas.atualizarTarefa(-1, tarefaAtualizada));
-        assertThrows(NullPointerException.class, () -> sistemaTarefas.atualizarTarefa(0, new Tarefa(null, "No mercado Assaí às 09h", "12/09/2023", Prioridade.ALTA)));
+        assertThrows(IllegalArgumentException.class, () -> sistemaTarefas.atualizarTarefa(0, new Tarefa("", "No mercado Assaí às 09h", "12/09/2023", Prioridade.ALTA)));
+    
+        assertThrows(IllegalArgumentException.class, () -> sistemaTarefas.atualizarTarefa(-1, new Tarefa("Fazer compras", "No mercado Assaí às 09h", "12/09/2023", Prioridade.ALTA)));
+        assertThrows(IllegalArgumentException.class, () -> sistemaTarefas.atualizarTarefa(-1, new Tarefa("", "No mercado Assaí às 09h", "12/09/2023", Prioridade.ALTA)));
     }
 }
