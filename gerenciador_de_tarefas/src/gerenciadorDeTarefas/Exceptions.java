@@ -17,4 +17,10 @@ public class Exceptions {
 			throw new NullPointerException();
 		}
 	}
+	
+	public void verifier(int object) {
+		if (object < 0) {
+			throw new IllegalArgumentException();
+		}		
+	}
 }

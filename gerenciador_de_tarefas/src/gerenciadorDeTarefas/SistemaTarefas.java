@@ -23,6 +23,7 @@ public class SistemaTarefas {
     }
 
     public void atualizarTarefa(int indice, Tarefa tarefaAtualizada) {
+    	exceptions.verifier(indice);
     	exceptions.verifier(tarefaAtualizada);
     	
         tarefas.set(indice, tarefaAtualizada);

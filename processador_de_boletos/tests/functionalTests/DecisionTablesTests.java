@@ -46,8 +46,6 @@ class DecisionTablesTests {
         processador.cadastraBoletos("B003", "01/03/2023", 100.00);
         processador.cadastraFatura("01/03/2023", 300.00, "João Vitor");
         processador.verificadorDePagamento(processador.getBoletos(), (Fatura) processador.getFatura());
-        
-        // Teste 8: Pago
         assertEquals(1, processador.getPagamentos().size());
 
         processador.cadastraBoletos("B001", "01/01/2023", 100.00);
