@@ -61,4 +61,8 @@ public class Processador {
 		}
 	}
 
+	public List<Pagamento> getPagamentos() {
+		return this.pagamentos;
+	}
+
 }
