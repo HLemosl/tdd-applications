@@ -93,4 +93,45 @@ public class DecisionTablesTests {
         sistemaTarefas.adicionarTarefa(tarefaValida);
         assertThrows(IllegalArgumentException.class, () -> sistemaTarefas.atualizarTarefa(0, new Tarefa(titulo, descricao, dataVencimento, prioridade)));
     }
+
+    @Test
+    @DisplayName("Teste remover tarefa")
+    public void testRemoverTarefa() {
+        sistemaTarefas.adicionarTarefa(tarefaValida);
+        sistemaTarefas.removerTarefa(0);
+
+        List<Tarefa> todasTarefas = sistemaTarefas.listarTodasTarefas();
+
+        assertEquals(0, todasTarefas.size());
+    }
+
+    @ParameterizedTest
+    @DisplayName("Teste remover tarefa inválida")
+    @MethodSource("invalidIndexArguments")
+    public void testInvalidRemoverTarefa(int indice) {
+        assertThrows(IndexOutOfBoundsException.class, () -> sistemaTarefas.removerTarefa(indice));
+    }
+
+    private static Stream<Arguments> invalidIndexArguments() {
+        return Stream.of(
+            Arguments.of(-1),  // Índice negativo
+            Arguments.of(1)    // Índice fora de alcance
+        );
+    }
+
+    @Test
+    @DisplayName("Teste listar todas as tarefas vazias")
+    public void testListarTodasTarefasVazias() {
+        List<Tarefa> todasTarefas = sistemaTarefas.listarTodasTarefas();
+
+        assertEquals(0, todasTarefas.size());
+    }
+
+    @Test
+    @DisplayName("Teste atualizar tarefa com índice inválido")
+    public void testInvalidAtualizarTarefaComIndiceInvalido() {
+        Tarefa tarefaAtualizada = new Tarefa("Fazer compras", "No mercado Assaí às 09h", "12/10/2023", Prioridade.ALTA);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> sistemaTarefas.atualizarTarefa(1, tarefaAtualizada));
+    }
 }
