@@ -1,4 +1,4 @@
-package refactorFunctionalTests;
+package junit5Tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
